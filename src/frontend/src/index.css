@@ -1,0 +1,225 @@
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque-Variable.woff2") format("woff2");
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Figtree";
+  src: url("/assets/fonts/Figtree-Variable.woff2") format("woff2");
+  font-weight: 300 900;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Deep navy + warm saffron palette */
+    --background: 0.98 0.005 90;
+    --foreground: 0.18 0.06 255;
+
+    --card: 1 0 0;
+    --card-foreground: 0.18 0.06 255;
+
+    --popover: 1 0 0;
+    --popover-foreground: 0.18 0.06 255;
+
+    /* Deep navy */
+    --primary: 0.25 0.08 255;
+    --primary-foreground: 0.98 0.005 90;
+
+    --secondary: 0.96 0.006 90;
+    --secondary-foreground: 0.18 0.06 255;
+
+    --muted: 0.94 0.008 90;
+    --muted-foreground: 0.5 0.03 255;
+
+    /* Warm saffron */
+    --accent: 0.72 0.18 65;
+    --accent-foreground: 0.15 0.06 255;
+
+    --destructive: 0.54 0.22 27;
+    --destructive-foreground: 0.99 0 0;
+
+    --border: 0.9 0.01 255;
+    --input: 0.9 0.01 255;
+    --ring: 0.25 0.08 255;
+
+    --radius: 0.75rem;
+
+    --chart-1: 0.25 0.08 255;
+    --chart-2: 0.72 0.18 65;
+    --chart-3: 0.55 0.18 145;
+    --chart-4: 0.6 0.15 280;
+    --chart-5: 0.65 0.18 30;
+
+    --sidebar: 0.98 0.005 90;
+    --sidebar-foreground: 0.18 0.06 255;
+    --sidebar-primary: 0.25 0.08 255;
+    --sidebar-primary-foreground: 0.98 0.005 90;
+    --sidebar-accent: 0.96 0.006 90;
+    --sidebar-accent-foreground: 0.18 0.06 255;
+    --sidebar-border: 0.9 0.01 255;
+    --sidebar-ring: 0.25 0.08 255;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Figtree", sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: "Bricolage Grotesque", sans-serif;
+  }
+
+  .font-body {
+    font-family: "Figtree", sans-serif;
+  }
+
+  /* Saffron gradient text */
+  .gradient-text {
+    background: linear-gradient(
+      135deg,
+      oklch(0.72 0.18 65),
+      oklch(0.82 0.16 55)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Navy gradient text */
+  .navy-gradient-text {
+    background: linear-gradient(
+      135deg,
+      oklch(0.25 0.08 255),
+      oklch(0.38 0.1 255)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Hero: rich dark navy with mesh */
+  .hero-bg {
+    background-color: oklch(0.18 0.08 255);
+    background-image: radial-gradient(
+        ellipse 80% 60% at 60% -10%,
+        oklch(0.32 0.12 255 / 0.5) 0%,
+        transparent 60%
+      ),
+      radial-gradient(
+        ellipse 50% 40% at 100% 80%,
+        oklch(0.72 0.18 65 / 0.12) 0%,
+        transparent 60%
+      ),
+      radial-gradient(
+        ellipse 40% 30% at 0% 100%,
+        oklch(0.35 0.1 240 / 0.3) 0%,
+        transparent 60%
+      );
+  }
+
+  /* Contact dark section */
+  .contact-bg {
+    background-color: oklch(0.14 0.07 255);
+    background-image: radial-gradient(
+        ellipse 60% 50% at 50% 0%,
+        oklch(0.28 0.1 255 / 0.6) 0%,
+        transparent 60%
+      ),
+      radial-gradient(
+        ellipse 40% 30% at 90% 90%,
+        oklch(0.72 0.18 65 / 0.08) 0%,
+        transparent 60%
+      );
+  }
+
+  /* Footer dark */
+  .footer-bg {
+    background-color: oklch(0.12 0.06 255);
+  }
+
+  /* Dot grid pattern for light sections */
+  .dot-pattern {
+    background-image: radial-gradient(
+      oklch(0.85 0.015 255) 1px,
+      transparent 1px
+    );
+    background-size: 24px 24px;
+  }
+
+  /* Saffron accent glow */
+  .saffron-glow {
+    box-shadow: 0 0 0 1px oklch(0.72 0.18 65 / 0.3), 0 8px 32px
+      oklch(0.72 0.18 65 / 0.15);
+  }
+
+  /* Navy card shadow */
+  .navy-shadow {
+    box-shadow: 0 2px 8px oklch(0.18 0.08 255 / 0.08), 0 8px 24px
+      oklch(0.18 0.08 255 / 0.06);
+  }
+
+  .navy-shadow-lg {
+    box-shadow: 0 4px 16px oklch(0.18 0.08 255 / 0.12), 0 16px 48px
+      oklch(0.18 0.08 255 / 0.1);
+  }
+
+  /* WhatsApp button */
+  .whatsapp-btn {
+    background-color: #25d366;
+    color: white;
+    font-weight: 600;
+  }
+  .whatsapp-btn:hover {
+    background-color: #1ebe5d;
+    transform: translateY(-1px);
+  }
+
+  /* Saffron CTA */
+  .saffron-btn {
+    background-color: oklch(0.72 0.18 65);
+    color: oklch(0.15 0.06 255);
+    font-weight: 700;
+  }
+  .saffron-btn:hover {
+    background-color: oklch(0.76 0.18 65);
+    transform: translateY(-1px);
+  }
+
+  /* Animated underline */
+  .nav-link-hover {
+    position: relative;
+  }
+  .nav-link-hover::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: oklch(0.72 0.18 65);
+    transition: width 0.2s ease;
+  }
+  .nav-link-hover:hover::after {
+    width: 100%;
+  }
+}
